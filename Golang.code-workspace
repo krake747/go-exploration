@@ -5,8 +5,6 @@
         }
     ],
     "settings": {
-        "workbench.colorTheme": "Dracula",
-        "workbench.iconTheme": "material-icon-theme",
         "editor.fontFamily": "JetBrains Mono",
         "editor.fontLigatures": false,
         "editor.fontSize": 14,
@@ -14,7 +12,18 @@
         "editor.wordWrapColumn": 120,
         "editor.formatOnPaste": true,
         "editor.formatOnSave": true,
+        "editor.minimap.enabled": true,
+        "editor.minimap.maxColumn": 80,
+        "editor.minimap.scale": 2,
+        "editor.minimap.size": "proportional",
+        "editor.minimap.renderCharacters": false,
+        "editor.minimap.showSlider": "always",
         "terminal.integrated.fontSize": 13,
+        "workbench.colorTheme": "Dracula",
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.tree.indent": 18,
+        "workbench.tree.renderIndentGuides": "always",
+        "workbench.tree.expandMode": "doubleClick",
         "[html]": {
             "editor.defaultFormatter": "vscode.html-language-features",
             "editor.tabSize": 4

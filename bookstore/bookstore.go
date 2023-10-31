@@ -22,3 +22,7 @@ func Buy(book Book) (Book, error) {
 	book.Copies--
 	return book, nil
 }
+
+func GetAllBooks(catalog []Book) []Book {
+	return catalog
+}
