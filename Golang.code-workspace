@@ -1,39 +1,49 @@
 {
-  "folders": [
-    {
-      "path": "."
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "workbench.colorTheme": "Dracula",
+        "workbench.iconTheme": "material-icon-theme",
+        "editor.fontFamily": "JetBrains Mono",
+        "editor.fontLigatures": false,
+        "editor.fontSize": 14,
+        "editor.rulers": [120],
+        "editor.wordWrapColumn": 120,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "terminal.integrated.fontSize": 13,
+        "[html]": {
+            "editor.defaultFormatter": "vscode.html-language-features",
+            "editor.tabSize": 4
+        },
+        "[javascript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.tabSize": 4
+        },
+        "[typescript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.tabSize": 4
+        },
+        "[json]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.tabSize": 4
+        },
+        "[jsonc]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.tabSize": 4
+        }
+    },
+    "extensions": {
+        "recommendations": [
+            "dracula-theme.theme-dracula",
+            "usernamehw.errorlens",
+            "mhutchie.git-graph",
+            "golang.go",
+            "PKief.material-icon-theme",
+            "esbenp.prettier-vscode"
+        ]
     }
-  ],
-  "settings": {
-    "workbench.colorTheme": "Default Dark Modern",
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "JetBrains Mono",
-    "editor.fontLigatures": false,
-    "editor.fontSize": 14,
-    "editor.rulers": [120],
-    "editor.wordWrapColumn": 120,
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "terminal.integrated.fontSize": 13,
-    "[html]": {
-      "editor.defaultFormatter": "vscode.html-language-features",
-      "editor.tabSize": 4
-    },
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.tabSize": 4
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.tabSize": 4
-    },
-    "[json]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.tabSize": 4
-    },
-    "[jsonc]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.tabSize": 4
-    }
-  }
 }
