@@ -5,7 +5,7 @@
         }
     ],
     "settings": {
-        "editor.fontFamily": "JetBrains Mono",
+        "editor.fontFamily": "JetBrains Mono, Cascadia Mono, Roboto Mono, Fira Code, Consolas",
         "editor.fontLigatures": false,
         "editor.fontSize": 14,
         "editor.rulers": [120],
