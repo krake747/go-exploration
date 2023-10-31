@@ -8,6 +8,7 @@
         "editor.fontFamily": "JetBrains Mono, Cascadia Mono, Roboto Mono, Fira Code, Consolas",
         "editor.fontLigatures": false,
         "editor.fontSize": 14,
+        "editor.fontWeight": "normal",
         "editor.rulers": [120],
         "editor.wordWrapColumn": 120,
         "editor.formatOnPaste": true,
@@ -43,6 +44,9 @@
         "[jsonc]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.tabSize": 4
+        },
+        "gopls": {
+            "ui.semanticTokens": true
         }
     },
     "extensions": {
@@ -52,7 +56,9 @@
             "mhutchie.git-graph",
             "golang.go",
             "PKief.material-icon-theme",
-            "esbenp.prettier-vscode"
+            "esbenp.prettier-vscode",
+            "mechatroner.rainbow-csv",
+            "humao.rest-client"
         ]
     }
 }

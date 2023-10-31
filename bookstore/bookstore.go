@@ -2,6 +2,7 @@ package bookstore
 
 import (
 	"errors"
+	"fmt"
 )
 
 // Book represents information about a book.
@@ -26,10 +27,18 @@ func Buy(book Book) (Book, error) {
 	return book, nil
 }
 
-func GetAllBooks(catalog map[int]Book) map[int]Book {
-	return catalog
+func GetAllBooks(catalog map[int]Book) []Book {
+	result := []Book{}
+	for _, b := range catalog {
+		result = append(result, b)
+	}
+	return result
 }
 
-func GetBook(catalog map[int]Book, id int) Book {
-	return catalog[id]
+func GetBook(catalog map[int]Book, id int) (Book, error) {
+	b, ok := catalog[id]
+	if !ok {
+		return Book{}, fmt.Errorf("id %d doesn't exist", id)
+	}
+	return b, nil
 }
