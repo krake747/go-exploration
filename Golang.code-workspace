@@ -45,6 +45,9 @@
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.tabSize": 4
         },
+        "[yaml]": {
+            "editor.defaultFormatter": "redhat.vscode-yaml"
+        },
         "gopls": {
             "ui.semanticTokens": true
         }
@@ -58,7 +61,8 @@
             "PKief.material-icon-theme",
             "esbenp.prettier-vscode",
             "mechatroner.rainbow-csv",
-            "humao.rest-client"
+            "humao.rest-client",
+            "redhat.vscode-yaml"
         ]
     }
 }

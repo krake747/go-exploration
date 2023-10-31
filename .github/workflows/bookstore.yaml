@@ -1,0 +1,18 @@
+name: "bookstore"
+
+on:
+  push:
+    paths:
+      - "src/bookstore/**"
+      - ".github/workflows/bookstore.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Run tests
+        run: |-
+          cd src/bookstore
+          go test ./...
