@@ -2,6 +2,7 @@ package bookstore_test
 
 import (
 	"bookstore"
+	"sort"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -60,6 +61,9 @@ func TestGetAllBooks(t *testing.T) {
 		{Id: 3, Title: "Spark Joy"},
 	}
 	got := bookstore.GetAllBooks(catalog)
+	sort.Slice(got, func(i, j int) bool {
+		return got[i].Id < got[j].Id
+	})
 	if !cmp.Equal(want, got) {
 		t.Error(cmp.Diff(want, got))
 	}
@@ -88,5 +92,15 @@ func TestGetBookBadIdReturnsError(t *testing.T) {
 	_, err := bookstore.GetBook(catalog, 999)
 	if err == nil {
 		t.Fatal("want error for non-existent ID, got nil")
+	}
+}
+
+func TestNetPriceCents(t *testing.T) {
+	t.Parallel()
+	book := bookstore.Book{Title: "For the Love of Go", PriceCents: 4000, DiscountPercent: 25}
+	want := 3000
+	got := book.NetPriceCents()
+	if want != got {
+		t.Errorf("want %d, got %d", want, got)
 	}
 }

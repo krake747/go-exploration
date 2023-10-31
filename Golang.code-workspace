@@ -13,7 +13,7 @@
         "editor.wordWrapColumn": 120,
         "editor.formatOnPaste": true,
         "editor.formatOnSave": true,
-        "editor.minimap.enabled": true,
+        "editor.minimap.enabled": false,
         "editor.minimap.maxColumn": 80,
         "editor.minimap.scale": 2,
         "editor.minimap.size": "proportional",

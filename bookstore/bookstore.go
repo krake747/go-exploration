@@ -5,18 +5,24 @@ import (
 	"fmt"
 )
 
-// Book represents information about a book.
-type Book struct {
-	Id     int
-	Title  string
-	Author string
-	Copies int
-}
-
 // Customer represents information about a bookstore customer.
 type Customer struct {
 	Name  string
 	Email string
+}
+
+// Book represents information about a book.
+type Book struct {
+	Id              int
+	Title           string
+	Author          string
+	Copies          int
+	PriceCents      int
+	DiscountPercent int
+}
+
+func (book Book) NetPriceCents() int {
+	return book.PriceCents - (book.PriceCents * book.DiscountPercent / 100)
 }
 
 func Buy(book Book) (Book, error) {
