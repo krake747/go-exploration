@@ -1,9 +1,12 @@
 package bookstore
 
-import "errors"
+import (
+	"errors"
+)
 
 // Book represents information about a book.
 type Book struct {
+	Id     int
 	Title  string
 	Author string
 	Copies int
@@ -25,4 +28,13 @@ func Buy(book Book) (Book, error) {
 
 func GetAllBooks(catalog []Book) []Book {
 	return catalog
+}
+
+func GetBook(catalog []Book, id int) Book {
+	for _, b := range catalog {
+		if b.Id == id {
+			return b
+		}
+	}
+	return Book{}
 }
