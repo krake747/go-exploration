@@ -25,6 +25,7 @@ jobs:
 
       - name: Upload Go test results
         uses: actions/upload-artifact@v3
+        run: cd src/{{package}}
         with:
           name: Go-results-{{package}}
           path: TestResults-{{package}}.json
