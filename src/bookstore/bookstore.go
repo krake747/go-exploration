@@ -33,7 +33,7 @@ func Buy(book Book) (Book, error) {
 	return book, nil
 }
 
-func GetAllBooks(catalog map[int]Book) []Book {
+func GetAllBooks(catalog Catalog) []Book {
 	result := []Book{}
 	for _, b := range catalog {
 		result = append(result, b)
@@ -41,10 +41,13 @@ func GetAllBooks(catalog map[int]Book) []Book {
 	return result
 }
 
-func GetBook(catalog map[int]Book, id int) (Book, error) {
+func GetBook(catalog Catalog, id int) (Book, error) {
 	b, ok := catalog[id]
 	if !ok {
 		return Book{}, fmt.Errorf("id %d doesn't exist", id)
 	}
 	return b, nil
 }
+
+// Catalog represents information about a bookstore's collection of books.
+type Catalog = map[int]Book
