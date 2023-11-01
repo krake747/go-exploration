@@ -19,6 +19,7 @@ type Book struct {
 	Copies          int
 	PriceCents      int
 	DiscountPercent int
+	category        string
 }
 
 func (book Book) NetPriceCents() int {
@@ -31,6 +32,18 @@ func (book *Book) SetPriceCents(price int) error {
 	}
 	book.PriceCents = price
 	return nil
+}
+
+func (book *Book) SetCategory(category string) error {
+	if category != "Autobiography" {
+		return fmt.Errorf("unknown category %q", category)
+	}
+	book.category = category
+	return nil
+}
+
+func (book Book) Category() string {
+	return book.category
 }
 
 func Buy(book Book) (Book, error) {
