@@ -31,3 +31,7 @@ func (su StringUppercaser) ToUpper() string {
 type MyBuilderEmbedded struct {
 	strings.Builder
 }
+
+func Double(input *int) {
+	*input *= 2
+}

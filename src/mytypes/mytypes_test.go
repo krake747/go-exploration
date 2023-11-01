@@ -69,3 +69,13 @@ func TestMyBuilderEmbedded(t *testing.T) {
 		t.Errorf("%q: want len %d, got %d", mb.String(), wantLen, gotLen)
 	}
 }
+
+func TestDouble(t *testing.T) {
+	t.Parallel()
+	var x int = 12
+	want := 24
+	mytypes.Double(&x)
+	if want != x {
+		t.Errorf("want %d, got %d", want, x)
+	}
+}
