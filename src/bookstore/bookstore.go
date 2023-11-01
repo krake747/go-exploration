@@ -50,4 +50,4 @@ func GetBook(catalog Catalog, id int) (Book, error) {
 }
 
 // Catalog represents information about a bookstore's collection of books.
-type Catalog = map[int]Book
+type Catalog map[int]Book
