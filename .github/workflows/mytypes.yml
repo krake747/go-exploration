@@ -1,0 +1,24 @@
+name: "mytypes"
+
+on:
+  push:
+    paths:
+      - "src/mytypes/**"
+      - ".github/workflows/mytypes.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21.x'
+          cache: false
+          
+      - name: Run tests
+        run: |-
+          cd src/mytypes
+          go test ./...
