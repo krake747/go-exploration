@@ -26,6 +26,5 @@ jobs:
       - name: Upload Go test results
         uses: actions/upload-artifact@v3
         with:
-          working-directory: src/{{package}}
           name: Go-results-{{package}}
-          path: TestResults-{{package}}.json
+          path: src/{{package}}/TestResults-{{package}}.json

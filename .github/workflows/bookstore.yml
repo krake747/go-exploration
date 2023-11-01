@@ -26,6 +26,5 @@ jobs:
       - name: Upload Go test results
         uses: actions/upload-artifact@v3
         with:
-          working-directory: src/bookstore
           name: Go-results-bookstore
-          path: TestResults-bookstore.json
+          path: src/bookstore/TestResults-bookstore.json
