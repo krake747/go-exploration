@@ -25,7 +25,7 @@ jobs:
 
       - name: Upload Go test results
         uses: actions/upload-artifact@v3
-        working-directory: src/calculator
         with:
+          working-directory: src/calculator
           name: Go-results-calculator
           path: TestResults-calculator.json

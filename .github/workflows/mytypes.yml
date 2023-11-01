@@ -25,7 +25,7 @@ jobs:
 
       - name: Upload Go test results
         uses: actions/upload-artifact@v3
-        working-directory: src/mytypes
         with:
+          working-directory: src/mytypes
           name: Go-results-mytypes
           path: TestResults-mytypes.json
