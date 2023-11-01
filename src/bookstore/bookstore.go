@@ -25,6 +25,14 @@ func (book Book) NetPriceCents() int {
 	return book.PriceCents - (book.PriceCents * book.DiscountPercent / 100)
 }
 
+func (book *Book) SetPriceCents(price int) error {
+	if price < 0 {
+		return fmt.Errorf("negative price %d", price)
+	}
+	book.PriceCents = price
+	return nil
+}
+
 func Buy(book Book) (Book, error) {
 	if book.Copies == 0 {
 		return Book{}, errors.New("no copies left")

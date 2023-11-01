@@ -17,6 +17,16 @@ func TestBook(t *testing.T) {
 	}
 }
 
+func TestNetPriceCents(t *testing.T) {
+	t.Parallel()
+	book := bookstore.Book{Title: "For the Love of Go", PriceCents: 4000, DiscountPercent: 25}
+	want := 3000
+	got := book.NetPriceCents()
+	if want != got {
+		t.Errorf("want %d, got %d", want, got)
+	}
+}
+
 func TestBuy(t *testing.T) {
 	t.Parallel()
 	b := bookstore.Book{
@@ -95,12 +105,31 @@ func TestGetBookBadIdReturnsError(t *testing.T) {
 	}
 }
 
-func TestNetPriceCents(t *testing.T) {
+func TestSetPriceCents(t *testing.T) {
 	t.Parallel()
-	book := bookstore.Book{Title: "For the Love of Go", PriceCents: 4000, DiscountPercent: 25}
+	book := bookstore.Book{
+		Title:      "For the love of Go",
+		PriceCents: 4000,
+	}
 	want := 3000
-	got := book.NetPriceCents()
+	err := book.SetPriceCents(want)
+	if err != nil {
+		t.Fatal(err)
+	}
+	got := book.PriceCents
 	if want != got {
-		t.Errorf("want %d, got %d", want, got)
+		t.Errorf("want updated price %d, got %d", want, got)
+	}
+}
+
+func TestSetPriceCentsInvalid(t *testing.T) {
+	t.Parallel()
+	book := bookstore.Book{
+		Title:      "For the Love of Go",
+		PriceCents: 4000,
+	}
+	err := book.SetPriceCents(-1)
+	if err == nil {
+		t.Fatal("want error setting invalid price -1, got nil")
 	}
 }
