@@ -22,8 +22,7 @@ func TestNetPriceCents(t *testing.T) {
 	t.Parallel()
 	book := bookstore.Book{Title: "For the Love of Go", PriceCents: 4000, DiscountPercent: 25}
 	want := 3000
-	got := book.NetPriceCents()
-	if want != got {
+	if got := book.NetPriceCents(); want != got {
 		t.Errorf("want %d, got %d", want, got)
 	}
 }
@@ -40,8 +39,7 @@ func TestBuy(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	got := result.Copies
-	if want != got {
+	if got := result.Copies; want != got {
 		t.Errorf("want %d, got %d", want, got)
 	}
 }
@@ -53,8 +51,7 @@ func TestBuyErrorsIfNoCopiesLeft(t *testing.T) {
 		Author: "J.R. R. Tolkien",
 		Copies: 0,
 	}
-	_, err := bookstore.Buy(b)
-	if err == nil {
+	if _, err := bookstore.Buy(b); err == nil {
 		t.Error("want error buying from zero copies, got nil")
 	}
 }
@@ -100,8 +97,7 @@ func TestGetBook(t *testing.T) {
 func TestGetBookBadIdReturnsError(t *testing.T) {
 	t.Parallel()
 	catalog := map[int]bookstore.Book{}
-	_, err := bookstore.GetBook(catalog, 999)
-	if err == nil {
+	if _, err := bookstore.GetBook(catalog, 999); err == nil {
 		t.Fatal("want error for non-existent ID, got nil")
 	}
 }
@@ -113,12 +109,10 @@ func TestSetPriceCents(t *testing.T) {
 		PriceCents: 4000,
 	}
 	want := 3000
-	err := book.SetPriceCents(want)
-	if err != nil {
+	if err := book.SetPriceCents(want); err != nil {
 		t.Fatal(err)
 	}
-	got := book.PriceCents
-	if want != got {
+	if got := book.PriceCents; want != got {
 		t.Errorf("want updated price %d, got %d", want, got)
 	}
 }
@@ -129,8 +123,7 @@ func TestSetPriceCentsInvalid(t *testing.T) {
 		Title:      "For the Love of Go",
 		PriceCents: 4000,
 	}
-	err := book.SetPriceCents(-1)
-	if err == nil {
+	if err := book.SetPriceCents(-1); err == nil {
 		t.Fatal("want error setting invalid price -1, got nil")
 	}
 }
@@ -146,12 +139,10 @@ func TestSetCategory(t *testing.T) {
 		bookstore.CategoryParticlePhysics,
 	}
 	for _, category := range categories {
-		err := book.SetCategory(category)
-		if err != nil {
+		if err := book.SetCategory(category); err != nil {
 			t.Fatal(err)
 		}
-		got := book.Category()
-		if category != got {
+		if got := book.Category(); category != got {
 			t.Errorf("want category %q, got %q", category, got)
 		}
 	}
@@ -162,8 +153,7 @@ func TestSetCategoryInvalid(t *testing.T) {
 	book := bookstore.Book{
 		Title: "For the Love of Go",
 	}
-	err := book.SetCategory(999)
-	if err == nil {
+	if err := book.SetCategory(999); err == nil {
 		t.Fatal("want error for invalid category, got nil")
 	}
 }
