@@ -5,6 +5,15 @@ import (
 	"fmt"
 )
 
+const (
+	CategoryAutobiography Category = iota
+	CategoryLargePrintRomance
+	CategoryParticlePhysics
+)
+
+// Category represents information about a book's category.
+type Category int
+
 // Customer represents information about a bookstore customer.
 type Customer struct {
 	Name  string
@@ -19,7 +28,7 @@ type Book struct {
 	Copies          int
 	PriceCents      int
 	DiscountPercent int
-	category        string
+	category        Category
 }
 
 func (book Book) NetPriceCents() int {
@@ -34,15 +43,20 @@ func (book *Book) SetPriceCents(price int) error {
 	return nil
 }
 
-func (book *Book) SetCategory(category string) error {
-	if category != "Autobiography" {
+func (book *Book) SetCategory(category Category) error {
+	var validCategory = map[Category]bool{
+		CategoryAutobiography:     true,
+		CategoryLargePrintRomance: true,
+		CategoryParticlePhysics:   true,
+	}
+	if !validCategory[category] {
 		return fmt.Errorf("unknown category %q", category)
 	}
 	book.category = category
 	return nil
 }
 
-func (book Book) Category() string {
+func (book Book) Category() Category {
 	return book.category
 }
 
