@@ -15,10 +15,16 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.21.x'
+          go-version: "1.21.x"
           cache: false
-          
+
       - name: Run tests
         run: |-
           cd src/{{package}}
-          go test ./...
+          go test ./... -json > TestResults-{{package}}.json
+
+      - name: Upload Go test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: Go-results-{{package}}
+          path: TestResults-{{package}}.json
