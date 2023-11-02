@@ -2,6 +2,7 @@ package creditcard_test
 
 import (
 	"creditcard"
+	"fmt"
 	"testing"
 )
 
@@ -24,4 +25,18 @@ func TestNewInvalidReturnsError(t *testing.T) {
 	if err == nil {
 		t.Fatal("want error for invalid card number, got nil")
 	}
+}
+
+func ExampleNew() {
+	cc, _ := creditcard.New("1234567890")
+	fmt.Println(cc)
+	// Output:
+	// {1234567890}
+}
+
+func Example_card_Number() {
+	cc, _ := creditcard.New("1234567890")
+	fmt.Println(cc.Number())
+	// Output:
+	// 1234567890
 }
