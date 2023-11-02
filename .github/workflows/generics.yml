@@ -1,0 +1,30 @@
+name: "generics"
+
+on:
+  push:
+    paths:
+      - "src/generics/**"
+      - ".github/workflows/generics.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: "1.21.x"
+          cache: false
+
+      - name: Run tests
+        run: |-
+          cd src/generics
+          go test ./... -json > TestResults-generics.json
+
+      - name: Upload Go test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: Go-results-generics
+          path: src/generics/TestResults-generics.json
