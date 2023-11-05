@@ -2,10 +2,15 @@ package main
 
 import (
 	"fmt"
-	"io"
+	"html/template"
 	"log"
 	"net/http"
 )
+
+type BikeBrand struct {
+	Id   int
+	Name string
+}
 
 func main() {
 	fmt.Println("Hello Bikestore")
@@ -16,6 +21,14 @@ func main() {
 }
 
 func h1(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hello Bikestore\n")
-	io.WriteString(w, r.Method)
+	tmpl := template.Must(template.ParseFiles("index.html"))
+	bikebrands := map[string][]BikeBrand{
+		"BikeBrands": {
+			{Id: 1, Name: "Trek"},
+			{Id: 2, Name: "Giant"},
+			{Id: 3, Name: "Orbea"},
+		},
+	}
+	tmpl.Execute(w, bikebrands)
+
 }

@@ -54,16 +54,20 @@
     },
     "extensions": {
         "recommendations": [
-            "dracula-theme.theme-dracula",
+            // General
             "usernamehw.errorlens",
-            "mhutchie.git-graph",
-            "golang.go",
-            "PKief.material-icon-theme",
             "esbenp.prettier-vscode",
             "mechatroner.rainbow-csv",
             "humao.rest-client",
             "redhat.vscode-yaml",
-            "github.vscode-github-actions"
+            "mhutchie.git-graph",
+            "github.vscode-github-actions",
+            // Themes
+            "dracula-theme.theme-dracula",
+            "PKief.material-icon-theme",
+            // Go
+            "golang.go",
+            "jinliming2.vscode-go-template"
         ]
     }
 }
