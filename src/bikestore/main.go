@@ -33,6 +33,7 @@ func main() {
 
 	http.HandleFunc("/", h1)
 
+	fmt.Println("Listening on http://127.0.0.1:8000")
 	err := http.ListenAndServe("127.0.0.1:8000", nil)
 	if err != nil {
 		log.Fatal(err)
