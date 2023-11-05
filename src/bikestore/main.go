@@ -12,14 +12,6 @@ type BikeBrand struct {
 	Name string
 }
 
-func main() {
-	fmt.Println("Hello Bikestore")
-
-	http.HandleFunc("/", h1)
-
-	log.Fatal(http.ListenAndServe("127.0.0.1:8000", nil))
-}
-
 func h1(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("index.html"))
 	bikebrands := map[string][]BikeBrand{
@@ -31,4 +23,18 @@ func h1(w http.ResponseWriter, r *http.Request) {
 	}
 	tmpl.Execute(w, bikebrands)
 
+}
+
+func main() {
+	fmt.Println("Hello Bikestore")
+
+	fs := http.FileServer(http.Dir("dist"))
+	http.Handle("/dist/", http.StripPrefix("/dist/", fs))
+
+	http.HandleFunc("/", h1)
+
+	err := http.ListenAndServe("127.0.0.1:8000", nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }

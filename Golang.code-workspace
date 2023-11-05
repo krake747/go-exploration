@@ -50,6 +50,9 @@
         },
         "gopls": {
             "ui.semanticTokens": true
+        },
+        "files.associations": {
+            "*.css": "tailwindcss"
         }
     },
     "extensions": {
@@ -67,7 +70,9 @@
             "PKief.material-icon-theme",
             // Go
             "golang.go",
-            "jinliming2.vscode-go-template"
+            "jinliming2.vscode-go-template",
+            // Css
+            "bradlc.vscode-tailwindcss"
         ]
     }
 }
