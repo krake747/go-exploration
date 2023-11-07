@@ -28,8 +28,8 @@ func h1(w http.ResponseWriter, r *http.Request) {
 func main() {
 	fmt.Println("Hello Bikestore")
 
-	fs := http.FileServer(http.Dir("dist"))
-	http.Handle("/dist/", http.StripPrefix("/dist/", fs))
+	fs := http.FileServer(http.Dir("wwwroot"))
+	http.Handle("/wwwroot/", http.StripPrefix("/wwwroot/", fs))
 
 	http.HandleFunc("/", h1)
 
