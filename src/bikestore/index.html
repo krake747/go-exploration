@@ -7,13 +7,37 @@
     <title>Bikestore</title>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="wwwroot/css/tailwindcss.min.css" type="text/css">
+    <script src="/wwwroot/js/htmx.min.js"></script>
 </head>
 
 <body>
-    <h1 class="text-3xl font-bold underline text-red-700">Hello Bikestore</h1>
-    {{ range .BikeBrands }}
-    <p>{{ .Id }} - {{ .Name }}</p>
-    {{ end }}
+    <div>
+
+        <div>
+            <h1 class="text-3xl font-bold underline text-red-700">Bikestore Brands</h1>
+            <ul>
+                {{ range .BikeBrands }}
+                <li>{{ .Name }} - {{ .Country }}</li>
+                {{ end }}
+            </ul>
+        </div>
+
+        <div>
+            <h1>Add Bike Brand</h1>
+            <form>
+                <div>
+                    <label for="bike-name">Name</label>
+                    <input type="text" name="name" id="bike-name">
+                </div>
+                <div>
+                    <label for="bike-country">Country</label>
+                    <input type="text" name="country" id="bike-country">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div>
 </body>
 
 </html>

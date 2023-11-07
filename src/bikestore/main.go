@@ -8,17 +8,18 @@ import (
 )
 
 type BikeBrand struct {
-	Id   int
-	Name string
+	Id      int
+	Name    string
+	Country string
 }
 
 func h1(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("index.html"))
 	bikebrands := map[string][]BikeBrand{
 		"BikeBrands": {
-			{Id: 1, Name: "Trek"},
-			{Id: 2, Name: "Giant"},
-			{Id: 3, Name: "Orbea"},
+			{Id: 1, Name: "Trek", Country: "US"},
+			{Id: 2, Name: "Giant", Country: "TW"},
+			{Id: 3, Name: "Orbea", Country: "ES"},
 		},
 	}
 	tmpl.Execute(w, bikebrands)
