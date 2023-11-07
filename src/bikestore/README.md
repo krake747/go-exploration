@@ -8,6 +8,13 @@ This is Go, HTMX and Tailwindcss in action.
 - [Tailwindcss](https://tailwindcss.com/)
 - [HTMX](https://htmx.org/)
 
+## Run
+
+In your terminal at the root level, either execute
+
+- `go run main.go` or
+- `air` to run the web application in watch mode.
+
 ## Installation
 
 ### Tailwindcss

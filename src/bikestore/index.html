@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bikestore</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link rel="stylesheet" href="wwwroot/css/tailwindcss.min.css" type="text/css">
+    <link href="/wwwroot/css/tailwindcss.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e2be0b45eb.js" crossorigin="anonymous"></script>
     <script src="/wwwroot/js/htmx.min.js"></script>
 </head>
 
-<body>
+<body class="container mx-auto px-4">
     <div>
 
         <div>
-            <h1 class="text-3xl font-bold underline text-red-700">Bikestore Brands</h1>
+            <h1 class="text-3xl font-bold underline">Bikestore Brands</h1>
             <ul>
                 {{ range .BikeBrands }}
                 <li>{{ .Name }} - {{ .Country }}</li>
@@ -23,7 +23,7 @@
         </div>
 
         <div>
-            <h1>Add Bike Brand</h1>
+            <h1 class="text-2xl font-bold underline">Add Bike Brand</h1>
             <form>
                 <div>
                     <label for="bike-name">Name</label>
@@ -33,7 +33,11 @@
                     <label for="bike-country">Country</label>
                     <input type="text" name="country" id="bike-country">
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit"
+                    class="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">
+                    Submit
+                    <i class="fa-solid fa-person-biking fa-xs"></i>
+                </button>
             </form>
         </div>
 
