@@ -6,7 +6,6 @@
 
 @layer base {
     html {
-        @apply text-black;
         font-family: "Roboto", sans-serif;
     }
 }
