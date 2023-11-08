@@ -14,7 +14,7 @@
     <div>
 
         <div>
-            <h1 class="text-3xl text-indigo-700 font-bold">Bikestore Brands</h1>
+            <h1 class="text-3xl text-indigo-700 underline decoration-rose-500">Bikestore Brands</h1>
             <ul>
                 {{ range .BikeBrands }}
                 <li>{{ .Name }} - {{ .Country }}</li>
@@ -23,7 +23,8 @@
         </div>
 
         <div>
-            <h1 class="text-2xl font-bold">Add Bike Brand</h1>
+            <h1 class="text-2xl border-2 border-rose-500 text-indigo-700">Add Bike Brand</h1>
+            <p class="text-base">This button allows you to add a bike brand</p>
             <form>
                 <div>
                     <label for="bike-name">Name</label>
